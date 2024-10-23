@@ -42,15 +42,15 @@ if which chrome; then
 fi
 
 # Forçar a instalação da versão 130 do Chrome e ChromeDriver
-CHROME_VERSION="130.0.6723.59"
-CHROMEDRIVER_VERSION="130.0.6723"
+CHROME_VERSION="130.0.6723.69"
+CHROMEDRIVER_VERSION="130.0.6723.69"
 
 echo "Using Chrome version $CHROME_VERSION" | indent
 echo "Using ChromeDriver version $CHROMEDRIVER_VERSION" | indent
 
 # Download Chrome
 echo "Downloading Chrome" | indent
-ZIP_URL="https://storage.googleapis.com/chrome-for-testing/$CHROME_VERSION/linux64/chrome-linux64.zip"
+ZIP_URL="https://storage.googleapis.com/chrome-for-testing-public/$CHROME_VERSION/linux64/chrome-linux64.zip"
 ZIP_LOCATION="$INSTALL_DIR/chrome.zip"
 curl --silent --show-error --fail --retry 3 --retry-connrefused --connect-timeout 10 -o "${ZIP_LOCATION}" "${ZIP_URL}" | indent
 unzip -q -o "$ZIP_LOCATION" -d "$INSTALL_DIR" | indent
@@ -58,7 +58,7 @@ rm -f "$ZIP_LOCATION"
 
 # Download Chromedriver
 echo "Downloading Chromedriver" | indent
-ZIP_URL="https://storage.googleapis.com/chrome-for-testing/$CHROMEDRIVER_VERSION/linux64/chromedriver-linux64.zip"
+ZIP_URL="https://storage.googleapis.com/chrome-for-testing-public/$CHROMEDRIVER_VERSION/linux64/chromedriver-linux64.zip"
 ZIP_LOCATION="$INSTALL_DIR/chromedriver.zip"
 curl --silent --show-error --fail --retry 3 --retry-connrefused --connect-timeout 10 -o "${ZIP_LOCATION}" "${ZIP_URL}" | indent
 unzip -q -o "$ZIP_LOCATION" -d "$INSTALL_DIR" | indent
